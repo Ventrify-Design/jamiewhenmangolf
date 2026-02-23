@@ -1222,6 +1222,102 @@
       transform: rotate(45deg);
     }
 
+    /* GALLERY */
+    #gallery {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #gallery::before {
+      content: '';
+      position: absolute;
+      top: -200px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 600px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .gallery-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+    }
+
+    .masonry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 300px 280px 280px;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Explicit grid placement */
+    .masonry-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1 / 2; } /* wide landscape — 2 cols */
+    .masonry-item:nth-child(2) { grid-column: 3 / 4; grid-row: 1 / 3; } /* tall portrait — 2 rows */
+    .masonry-item:nth-child(3) { grid-column: 1 / 2; grid-row: 2 / 3; }
+    .masonry-item:nth-child(4) { grid-column: 2 / 3; grid-row: 2 / 3; }
+    .masonry-item:nth-child(5) { grid-column: 1 / 2; grid-row: 3 / 4; }
+    .masonry-item:nth-child(6) { grid-column: 2 / 3; grid-row: 3 / 4; }
+    .masonry-item:nth-child(7) { grid-column: 3 / 4; grid-row: 3 / 4; }
+
+    .masonry-item {
+      position: relative;
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-shadow:
+        0 4px 20px rgba(0,0,0,0.4),
+        0 1px 4px rgba(0,0,0,0.3);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .masonry-item:hover {
+      box-shadow:
+        0 16px 52px rgba(0,0,0,0.6),
+        0 0 0 1px rgba(201,168,76,0.35);
+    }
+
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(1.03) brightness(0.93);
+      transition: transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.4s ease;
+    }
+
+    .masonry-item:hover img {
+      transform: scale(1.05);
+      filter: contrast(1.05) brightness(0.86);
+    }
+
+    /* Permanent subtle vignette at base of each image */
+    .masonry-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 48%, rgba(0,0,0,0.48) 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Gold shimmer revealed on hover */
+    .masonry-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 25% 25%, rgba(201,168,76,0.14) 0%, transparent 65%);
+      opacity: 0;
+      z-index: 2;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .masonry-item:hover::before { opacity: 1; }
+
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
@@ -1243,6 +1339,18 @@
       .timeline-track::before { display: none; }
       .form-row { grid-template-columns: 1fr; }
       .footer-top { flex-direction: column; }
+      .masonry-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-auto-rows: 200px;
+      }
+      .masonry-item:nth-child(1) { grid-column: 1 / 3; grid-row: auto; }
+      .masonry-item:nth-child(2) { grid-column: 1 / 2; grid-row: auto; }
+      .masonry-item:nth-child(3) { grid-column: 2 / 3; grid-row: auto; }
+      .masonry-item:nth-child(4) { grid-column: 1 / 2; grid-row: auto; }
+      .masonry-item:nth-child(5) { grid-column: 2 / 3; grid-row: auto; }
+      .masonry-item:nth-child(6) { grid-column: 1 / 2; grid-row: auto; }
+      .masonry-item:nth-child(7) { grid-column: 2 / 3; grid-row: auto; }
     }
   </style>
 </head>
@@ -1254,6 +1362,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#timeline">Career</a>
+      <a href="#gallery">Gallery</a>
       <a href="#pricing">Coaching</a>
       <a href="#booking" class="nav-cta">Book Session</a>
     </div>
@@ -1499,6 +1608,46 @@
         <div class="tl-empty"></div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ─── GALLERY ─── -->
+  <section id="gallery">
+    <div class="gallery-header reveal">
+      <div class="section-tag">In The Field</div>
+      <h2 class="section-title">The Coaching<br />Environment</h2>
+      <p style="margin-top:16px; font-size:0.92rem;">A look inside the sessions, facilities, and moments that define the Whenman coaching experience.</p>
+    </div>
+
+    <div class="masonry-grid reveal">
+      <!-- Item 1: jamie_4 — wide outdoor coaching shot, spans 2 cols (landscape) -->
+      <div class="masonry-item">
+        <img src="jamie_4.jpg" alt="Jamie Whenman coaching session on the golf course" style="object-position: 35% 60%;" />
+      </div>
+      <!-- Item 2: jamie_1 — indoor full swing portrait, tall right col spanning 2 rows -->
+      <div class="masonry-item">
+        <img src="jamie_1.jpg" alt="Jamie Whenman demonstrating full swing technique" style="object-position: 65% top;" />
+      </div>
+      <!-- Item 3: jamie_2 — Jamie with GolfTec screens (landscape in landscape cell) -->
+      <div class="masonry-item">
+        <img src="jamie_2.jpg" alt="Jamie Whenman with GolfTec swing analysis technology" style="object-position: 68% 35%;" />
+      </div>
+      <!-- Item 4: jamie_3 — Jamie at equipment store (landscape in landscape cell) -->
+      <div class="masonry-item">
+        <img src="jamie_3.jpg" alt="Jamie Whenman at GolfTec equipment display" style="object-position: 52% top;" />
+      </div>
+      <!-- Item 5: jamie_5 — Jamie and student in golf cart (portrait) -->
+      <div class="masonry-item">
+        <img src="jamie_5.jpg" alt="Jamie Whenman with student on the course" style="object-position: center 32%;" />
+      </div>
+      <!-- Item 6: jamie_6 — bunker coaching session (portrait) -->
+      <div class="masonry-item">
+        <img src="jamie_6.jpg" alt="Jamie Whenman bunker coaching session" style="object-position: 38% 30%;" />
+      </div>
+      <!-- Item 7: jamie_7 — Jamie and student standing by cart (portrait) -->
+      <div class="masonry-item">
+        <img src="jamie_7.jpg" alt="Jamie Whenman with junior student" style="object-position: center top;" />
+      </div>
     </div>
   </section>
 
@@ -1930,6 +2079,7 @@
             <h5>Navigate</h5>
             <a href="#about">About</a>
             <a href="#timeline">Career</a>
+            <a href="#gallery">Gallery</a>
             <a href="#pricing">Programs</a>
             <a href="#booking">Book Now</a>
           </div>
