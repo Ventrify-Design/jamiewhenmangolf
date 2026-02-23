@@ -842,6 +842,82 @@
       box-shadow: 0 8px 24px rgba(201,168,76,0.4);
     }
 
+    /* PRICING TOGGLE */
+    .pricing-toggle {
+      display: flex;
+      justify-content: center;
+      margin: 0 auto 56px;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 4px;
+      padding: 4px;
+      width: fit-content;
+    }
+
+    .pricing-tab {
+      padding: 11px 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: transparent;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: color 0.2s ease, background 0.2s ease;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .pricing-tab:hover { color: var(--text-primary); }
+
+    .pricing-tab.active {
+      background: var(--gold);
+      color: var(--obsidian);
+    }
+
+    .pricing-tab:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .pricing-panel { display: block; }
+    .pricing-panel.hidden { display: none; }
+
+    .pricing-panel-intro {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0 auto 48px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .pricing-per-session {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    .pricing-savings {
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .pricing-card--baseline {
+      border-color: rgba(201,168,76,0.18);
+    }
+
+    .pricing-card--baseline::before {
+      opacity: 0.6 !important;
+    }
+
+    .pricing-grid--junior {
+      max-width: 900px;
+    }
+
     /* BOOKING */
     #booking {
       background: var(--obsidian);
@@ -1432,167 +1508,286 @@
       <div class="section-tag">Coaching Programs</div>
       <h2 class="section-title">Invest in<br />Your Performance</h2>
       <p style="margin-top:16px; font-size:0.9rem; color:#6A6560;">
-        Choose the program that fits your ambition. Every tier includes Jamie's personally designed methodology.
+        Every program is built on Jamie's personally developed methodology. Begin with a Baseline Assessment, then choose your commitment level.
       </p>
     </div>
 
-    <div class="pricing-grid">
-
-      <!-- TIER 1 -->
-      <div class="pricing-card reveal">
-        <div class="pricing-tier">Foundation</div>
-        <div class="pricing-name">Essentials</div>
-        <div class="pricing-price">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-amount">249</span>
-          <span class="pricing-period">/ session</span>
-        </div>
-        <p class="pricing-desc">For golfers looking to sharpen fundamentals and build a consistent, reliable swing.</p>
-        <ul class="pricing-features">
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            60-min private lesson
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Video swing analysis
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Personalised drill plan
-          </li>
-          <li>
-            <div class="feature-check no">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#504D47" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l5 5M7 2L2 7"/></svg>
-            </div>
-            TrackMan data session
-          </li>
-          <li>
-            <div class="feature-check no">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#504D47" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l5 5M7 2L2 7"/></svg>
-            </div>
-            On-course playing lesson
-          </li>
-          <li>
-            <div class="feature-check no">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#504D47" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l5 5M7 2L2 7"/></svg>
-            </div>
-            Monthly strategy call
-          </li>
-        </ul>
-        <a href="#booking" class="btn-pricing btn-pricing-outline">Book Essentials</a>
-      </div>
-
-      <!-- TIER 2 — FEATURED -->
-      <div class="pricing-card featured reveal reveal-delay-1">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-tier">Performance</div>
-        <div class="pricing-name">Elite Program</div>
-        <div class="pricing-price">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-amount">750</span>
-          <span class="pricing-period">/ month</span>
-        </div>
-        <p class="pricing-desc">A fully structured monthly coaching plan for dedicated players aiming to compete seriously.</p>
-        <ul class="pricing-features">
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            4 × 90-min private lessons
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Full TrackMan data analysis
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Custom training programme
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            On-course playing lesson
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Monthly strategy call
-          </li>
-          <li>
-            <div class="feature-check no">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#504D47" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l5 5M7 2L2 7"/></svg>
-            </div>
-            Tournament caddie consultation
-          </li>
-        </ul>
-        <a href="#booking" class="btn-pricing btn-pricing-gold">Book Elite Program</a>
-      </div>
-
-      <!-- TIER 3 -->
-      <div class="pricing-card reveal reveal-delay-2">
-        <div class="pricing-tier">Tour-Level</div>
-        <div class="pricing-name">Pro Intensive</div>
-        <div class="pricing-price">
-          <span class="pricing-currency">$</span>
-          <span class="pricing-amount">1,800</span>
-          <span class="pricing-period">/ month</span>
-        </div>
-        <p class="pricing-desc">Unlimited access coaching reserved for competitive amateurs and touring professionals.</p>
-        <ul class="pricing-features">
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Unlimited private lessons
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Full TrackMan + biomechanics suite
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Bespoke tournament prep plan
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Weekly strategy call
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Tournament caddie consultation
-          </li>
-          <li class="included">
-            <div class="feature-check yes">
-              <svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg>
-            </div>
-            Mental performance coaching
-          </li>
-        </ul>
-        <a href="#booking" class="btn-pricing btn-pricing-outline">Book Pro Intensive</a>
-      </div>
-
+    <!-- Tab Toggle -->
+    <div class="pricing-toggle reveal">
+      <button class="pricing-tab active" data-tab="adult">Adult Coaching</button>
+      <button class="pricing-tab" data-tab="junior">Junior Coaching</button>
     </div>
+
+    <!-- ─── ADULT PANEL ─── -->
+    <div class="pricing-panel" id="tab-adult">
+      <p class="pricing-panel-intro">From a single session to a full-season commitment — every package delivers the same uncompromising standard of instruction.</p>
+      <div class="pricing-grid">
+
+        <!-- Baseline -->
+        <div class="pricing-card pricing-card--baseline reveal">
+          <div class="pricing-tier">Foundation</div>
+          <div class="pricing-name">Baseline Assessment</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">200</span>
+            <span class="pricing-period">· 1hr</span>
+          </div>
+          <div class="pricing-per-session">The essential first step</div>
+          <p class="pricing-desc">A comprehensive evaluation of your swing mechanics, movement patterns, and performance goals. Jamie's starting point for every student — understanding your game before building it.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              60-min private session
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Full swing & movement analysis
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Personalised program recommendation
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book Baseline</a>
+        </div>
+
+        <!-- 1 Session -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-tier">Single</div>
+          <div class="pricing-name">1 Session</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">250</span>
+            <span class="pricing-period">/ session</span>
+          </div>
+          <div class="pricing-per-session">$250 per session</div>
+          <p class="pricing-desc">One focused coaching session with no upfront commitment. Ideal for targeting a specific aspect of your game, or for experiencing the Whenman method before committing to a full program.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              60-min private lesson
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Video swing analysis
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Drill plan & practice notes
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book Single</a>
+        </div>
+
+        <!-- 4 Sessions -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-tier">Starter Pack</div>
+          <div class="pricing-name">4 Sessions</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">1,000</span>
+            <span class="pricing-period">total</span>
+          </div>
+          <div class="pricing-per-session">$250 per session</div>
+          <p class="pricing-desc">A structured four-session block to build real momentum. Enough continuity to ingrain new movement patterns and deliver measurable improvement in your ball-striking consistency.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              4 × 60-min private lessons
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Video analysis every session
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Progressive drill program
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book 4 Sessions</a>
+        </div>
+
+        <!-- 10 Sessions — FEATURED -->
+        <div class="pricing-card featured reveal">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-tier">Core Program</div>
+          <div class="pricing-name">10 Sessions</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">2,380</span>
+            <span class="pricing-period">total</span>
+          </div>
+          <div class="pricing-per-session">$238 per session &nbsp;·&nbsp; <span class="pricing-savings">Save $120</span></div>
+          <p class="pricing-desc">The most popular adult program and Jamie's recommended starting point for serious players. Ten sessions provide the continuity needed for genuine, measurable improvement in swing mechanics and on-course performance.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              10 × 60-min private lessons
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Full video & data analysis
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Custom training programme
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-gold">Book 10 Sessions</a>
+        </div>
+
+        <!-- 20 Sessions -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-tier">Development</div>
+          <div class="pricing-name">20 Sessions</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">4,500</span>
+            <span class="pricing-period">total</span>
+          </div>
+          <div class="pricing-per-session">$225 per session &nbsp;·&nbsp; <span class="pricing-savings">Save $500</span></div>
+          <p class="pricing-desc">A full coaching cycle for dedicated players ready to make a lasting commitment. Twenty sessions allow for deep, systematic work across every dimension of your swing and course management.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              20 × 60-min private lessons
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Full video & data analysis
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Custom training programme
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book 20 Sessions</a>
+        </div>
+
+        <!-- 40 Sessions -->
+        <div class="pricing-card reveal reveal-delay-2">
+          <div class="pricing-tier">Elite Commitment</div>
+          <div class="pricing-name">40 Sessions</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">8,000</span>
+            <span class="pricing-period">total</span>
+          </div>
+          <div class="pricing-per-session">$200 per session &nbsp;·&nbsp; <span class="pricing-savings">Save $2,000</span></div>
+          <p class="pricing-desc">Maximum commitment, maximum transformation. Forty sessions deliver a complete game rebuild — reserved for competitive amateurs and professionals who demand the very best from their development.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              40 × 60-min private lessons
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Full video & data analysis
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Custom training programme
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book 40 Sessions</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ─── JUNIOR PANEL ─── -->
+    <div class="pricing-panel hidden" id="tab-junior">
+      <p class="pricing-panel-intro">Junior programs are tailored to young players, focusing on sound technical foundations in a supportive, age-appropriate environment.</p>
+      <div class="pricing-grid pricing-grid--junior">
+
+        <!-- Junior Baseline -->
+        <div class="pricing-card pricing-card--baseline reveal">
+          <div class="pricing-tier">Foundation</div>
+          <div class="pricing-name">Baseline Assessment</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">200</span>
+            <span class="pricing-period">· 1hr</span>
+          </div>
+          <div class="pricing-per-session">The essential first step</div>
+          <p class="pricing-desc">An introductory assessment tailored to junior players — establishing movement fundamentals, technique baselines, and a clear long-term development pathway for your young golfer.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              60-min junior assessment
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Age-appropriate technique review
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Development pathway plan
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book Baseline</a>
+        </div>
+
+        <!-- Junior 1 Session -->
+        <div class="pricing-card reveal reveal-delay-1">
+          <div class="pricing-tier">Single</div>
+          <div class="pricing-name">1 Session</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">200</span>
+            <span class="pricing-period">/ session</span>
+          </div>
+          <div class="pricing-per-session">$200 per session</div>
+          <p class="pricing-desc">A single junior coaching session focused on the fundamentals of swing mechanics and movement. Professional PGA instruction delivered in an engaging, supportive environment built for young players.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              60-min private lesson
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Junior-focused technique work
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Practice drill summary
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-outline">Book Single</a>
+        </div>
+
+        <!-- Junior 10 Sessions — FEATURED -->
+        <div class="pricing-card featured reveal reveal-delay-2">
+          <div class="pricing-badge">Recommended</div>
+          <div class="pricing-tier">Junior Program</div>
+          <div class="pricing-name">10 Sessions</div>
+          <div class="pricing-price">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount">1,875</span>
+            <span class="pricing-period">total</span>
+          </div>
+          <div class="pricing-per-session">$187.50 per session &nbsp;·&nbsp; <span class="pricing-savings">Save $125</span></div>
+          <p class="pricing-desc">The recommended junior pathway. Ten sessions deliver the consistent exposure needed to develop sound technical foundations and build a repeatable, correct swing — with measurable progress tracked every step of the way.</p>
+          <ul class="pricing-features">
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              10 × 60-min junior lessons
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Video analysis & progress tracking
+            </li>
+            <li class="included">
+              <div class="feature-check yes"><svg viewBox="0 0 9 9" fill="none" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"><path d="M1.5 4.5l2.5 2.5 3.5-4"/></svg></div>
+              Tailored junior development plan
+            </li>
+          </ul>
+          <a href="#booking" class="btn-pricing btn-pricing-gold">Book 10 Sessions</a>
+        </div>
+
+      </div>
+    </div>
+
   </section>
 
   <!-- ─── BOOKING ─── -->
@@ -1678,9 +1873,19 @@
           <label class="form-label">Coaching Program</label>
           <select class="form-select" name="coaching_program" required>
             <option value="" disabled selected>Select a program</option>
-            <option>Essentials — $249/session</option>
-            <option>Elite Program — $750/month</option>
-            <option>Pro Intensive — $1,800/month</option>
+            <optgroup label="Adult Coaching">
+              <option>Adult — Baseline Assessment ($200 · 1hr)</option>
+              <option>Adult — 1 Session ($250)</option>
+              <option>Adult — 4 Sessions ($1,000)</option>
+              <option>Adult — 10 Sessions ($2,380)</option>
+              <option>Adult — 20 Sessions ($4,500)</option>
+              <option>Adult — 40 Sessions ($8,000)</option>
+            </optgroup>
+            <optgroup label="Junior Coaching">
+              <option>Junior — Baseline Assessment ($200 · 1hr)</option>
+              <option>Junior — 1 Session ($200)</option>
+              <option>Junior — 10 Sessions ($1,875)</option>
+            </optgroup>
             <option>Not sure — I'd like to discuss</option>
           </select>
         </div>
@@ -1730,9 +1935,9 @@
           </div>
           <div class="footer-col">
             <h5>Programs</h5>
-            <a href="#pricing">Essentials</a>
-            <a href="#pricing">Elite Program</a>
-            <a href="#pricing">Pro Intensive</a>
+            <a href="#pricing">Adult Coaching</a>
+            <a href="#pricing">Junior Coaching</a>
+            <a href="#pricing">Baseline Assessment</a>
           </div>
           <div class="footer-col">
             <h5>Contact</h5>
@@ -1787,6 +1992,29 @@
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(el => observer.observe(el));
+
+    // Pricing tab toggle
+    const pricingTabs = document.querySelectorAll('.pricing-tab');
+    const pricingPanels = document.querySelectorAll('.pricing-panel');
+
+    pricingTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.tab;
+
+        pricingTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        pricingPanels.forEach(panel => {
+          panel.classList.toggle('hidden', panel.id !== 'tab-' + target);
+        });
+
+        // Re-trigger reveal animations for newly visible panel
+        const newPanel = document.getElementById('tab-' + target);
+        newPanel.querySelectorAll('.reveal:not(.visible)').forEach(el => {
+          observer.observe(el);
+        });
+      });
+    });
   </script>
 </body>
 </html>
